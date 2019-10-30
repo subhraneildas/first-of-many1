@@ -1,11 +1,14 @@
 #include <stdio.h>
+#include<string.h>
 int main ()
 {
+    char palin(char[]);
     char args[30];
     printf("Enter a string \n");
     gets(args);
     printf("Entered String is : \n");
     puts(args);
+    palin(args);
     int i,x=0;
     for(i=0;args[i]!='\0';i++)
     {
@@ -19,4 +22,31 @@ int main ()
     printf("Toggled string is : \n");
     puts(args);
     return 0;
+}
+
+
+char palin(char str[30])
+{
+    char revstr[30];
+    int j,l=0,k=0;
+    l=strlen(str);
+    printf("%d \n",l);
+    j=l-1;
+    while(j>=0)
+    {
+        revstr[k]=str[j];
+        k++;
+        j--;
+    }
+    revstr[k]='\0';
+    printf("%s \n", revstr);
+    if (strcmpi(str,revstr)==0)
+       {
+        printf("The inputted string %s \n", str) ; printf("is a palindrome \n ");
+       }
+    else
+    {
+        printf("The inputted string %s \n", str ); printf("is not a palindrome \n");
+    }
+        return str;
 }
